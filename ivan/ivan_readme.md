@@ -65,19 +65,14 @@ python -c "import openai, qdrant_client, sentence_transformers, elasticsearch, j
 ```
 
 ### Run Jupyter notebooks
-To work with the course notebooks, make sure your virtual environment is activated:
+To work with the course notebooks, you can use `uv run` to automatically use the correct environment:
 
 ```bash
-# Activate virtual environment (if not already active)
-source .venv/bin/activate
+# Start Jupyter Lab (recommended) - uv handles the environment
+uv run jupyter lab
 
-# Start Jupyter Lab (recommended)
-jupyter lab
-```
-
-Or use the classic Jupyter Notebook interface:
-```bash
-jupyter notebook
+# Or use classic Jupyter Notebook interface
+uv run jupyter notebook
 ```
 
 **What happens:**
@@ -88,6 +83,43 @@ jupyter notebook
 
 **To stop the server:**
 - Press `Ctrl+C` in the terminal
+
+### Managing Jupyter Servers
+
+**List running Jupyter servers:**
+```bash
+jupyter server list
+```
+
+**Stop a specific server by port:**
+```bash
+jupyter server stop 8888
+```
+
+**Kill all Jupyter processes:**
+```bash
+pkill -f jupyter
+```
+
+**Force kill servers on a specific port:**
+```bash
+lsof -ti:8888 | xargs kill -9
+```
+
+**Clean up stale Jupyter runtime files (if servers show as running but aren't):**
+```bash
+# On macOS
+find ~/Library/Jupyter/runtime -name "*.json" -delete
+
+# On Linux
+rm -rf ~/.local/share/jupyter/runtime/*.json
+```
+
+**Verify all servers are stopped:**
+```bash
+jupyter server list
+# Should show: "Currently running servers:"
+```
 
 ## 🔑 Environment Variables
 
