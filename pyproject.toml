@@ -7,6 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "elasticsearch>=9.1.1",
     "jupyter>=1.1.1",
+    "lxml>=6.0.2",
     "minsearch>=0.0.7",
     "openai-agents==0.3.3",
     "pydantic-ai>=1.0.17",
@@ -16,5 +17,6 @@ dependencies = [
     "sentence-transformers>=5.1.1",
     "toyaikit==0.0.5",
     "tqdm>=4.67.1",
+    "yfinance>=0.2.66",
     "youtube-transcript-api>=1.2.2",
 ]
